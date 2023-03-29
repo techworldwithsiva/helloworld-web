@@ -1,7 +1,7 @@
 #!groovy
 @Library('jenkins-shared-pipelines@master')
-print("Hello World")
-/* Map configMap = [
+
+Map configMap = [
     application: "java",
     //skipStages: ["PCF Delete"]
 ]
@@ -10,4 +10,4 @@ if ( env.BRANCH_NAME.equalsIgnoreCase('master') ){
 }
 else{
     pipelineDecision.applicationPipeline(configMap)
-} */
+} 

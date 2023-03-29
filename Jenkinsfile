@@ -1,5 +1,5 @@
 #!groovy
-@Library('jenkins-shared-pipelines')
+@Library('jenkins-shared-pipelines@master')
 
 Map configMap = [
     application: "node",

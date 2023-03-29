@@ -2,7 +2,7 @@
 @Library('jenkins-shared-pipelines')
 
 Map configMap = [
-    application: "java",
+    application: "node",
     //skipStages: ["PCF Delete"]
 ]
 if ( env.BRANCH_NAME.equalsIgnoreCase('master') ){

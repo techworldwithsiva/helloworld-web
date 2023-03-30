@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-hello-world
+  labels:
+    app: nodejs-hello-world
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs-hello-world
+  template:
+    metadata:
+      labels:
+        app: nodejs-hello-world
+    spec:
+      containers:
+      - name: nodejs
+        image: 752692907119.dkr.ecr.ap-south-1.amazonaws.com/hello-world-web:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: NODE_ENV
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-hello-world
+spec:
+  type: LoadBalancer
+  selector:
+    app: nodejs-hello-world
+  ports:
+  - name: http
+    port: 80
+    targetPort: 3000
+
